@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TravelertApp.Views.RegisterUsers.RegisterEntrepreneurPage"
+             NavigationPage.HasNavigationBar="False">
+    
+  <ContentPage.Content>
+        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="MidnightBlue">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Source="GroupLogo.png" Grid.Row="0" Grid.ColumnSpan="2" Margin="20,40,20,0"
+                   VerticalOptions="FillAndExpand" HorizontalOptions="CenterAndExpand"
+                   Grid.Column="0" HeightRequest="100"></Image>
+          <!--FullName-->
+            <Frame Grid.Row="1" Grid.ColumnSpan="2" CornerRadius="10" Margin="20,20,20,0" Padding="0" HeightRequest="40" VerticalOptions="Start">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Entry x:Name="Entry_FullName" Grid.ColumnSpan="2" Text="{Binding FullName}"
+                           Placeholder="LASTNAME, FirstName MI."/>
+                </Grid>
+            </Frame>
+            <!--Age-->
+            <Frame Grid.Row="2" Grid.ColumnSpan="2" CornerRadius="10" Margin="20,20,20,0" Padding="0" HeightRequest="40" VerticalOptions="Start">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Entry x:Name="Entry_Age" Grid.ColumnSpan="2" Text="{Binding Age}"
+                           Placeholder="Age"/>
+                </Grid>
+            </Frame>
+
+           <!--Business Type-->
+            <Frame Grid.Row="3" Grid.ColumnSpan="2" CornerRadius="10" Margin="20,20,20,0" Padding="0" HeightRequest="40" VerticalOptions="Start">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <!--need nalang iassign ung selected index shit-->
+                    <!--need din ng binding-->
+                    <Picker x:Name="BusinessType" Grid.ColumnSpan="2" Title="Select your business type" SelectedItem="{Binding SelectedBusinessType}"
+                            SelectedIndexChanged="BusinessType_SelectedIndexChanged"/>
+                </Grid>
+            </Frame>
+            
+            <!--E-mail Address-->
+            <Frame Grid.Row="4" Grid.ColumnSpan="2" CornerRadius="10" Margin="20,20,20,0" Padding="0" HeightRequest="40" VerticalOptions="Start">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Entry x:Name="Entry_Email_Address" Grid.ColumnSpan="2" Text="{Binding Email}"
+                           Placeholder="E-mail Address"/>
+                </Grid>
+            </Frame>
+            <!--Password-->
+            <Frame Grid.Row="5" Grid.ColumnSpan="2" CornerRadius="10" Margin="20,20,20,0" Padding="0" HeightRequest="40" VerticalOptions="Start">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Entry x:Name="Entry_Password" Grid.ColumnSpan="2" IsPassword="True" Text="{Binding Password}"
+                       Placeholder="Password"/>
+                </Grid>
+            </Frame>
+
+            <!--Confirm Password-->
+            <Frame Grid.Row="6" Grid.ColumnSpan="2" CornerRadius="10" Margin="20,20,20,0" Padding="0" HeightRequest="40" VerticalOptions="Start">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Entry x:Name="Entry_ConfirmPassword" Grid.ColumnSpan="2" IsPassword="True" Text="{Binding ConfirmPassword}"
+                       Placeholder="Confirm Password"/>
+                </Grid>
+            </Frame>
+
+            <!--Clicked="Btn_RegisterAsEntrep_Clicked"-->
+            <!--Register-->
+            <Button x:Name="Btn_RegisterAsEntrep" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,20,20,40" CornerRadius="10"
+                TextColor="White" FontAttributes="Bold" Command="{Binding RegisterEntrepreneur}"
+                BackgroundColor="CadetBlue" Text="Register as Entrepreneur " FontSize="20" HorizontalOptions="FillAndExpand"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

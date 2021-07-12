@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="TravelertApp.Views.EntrepreneurPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Image Aspect="AspectFill" Source="SwipeBackground.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+
+            <!--boxview para may transparent effect daw dun sa background ng menu list-->
+            <BoxView BackgroundColor="#A1A1A1" Opacity="0.9"/>
+
+            <!--dito ung map and other shit sa main public page-->
+            <Grid x:Name="swipeContent">
+                <pv:PancakeView x:Name="pancake" BackgroundColor="White">
+
+                    <!--dito na lalagay ung laman, ung mga maps and shit-->
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!--Sample Map-->
+                        <Image Source="SampleMap.png" Grid.ColumnSpan="2" Grid.RowSpan="5"
+                                   Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+
+                        <!--dito na set location-->
+
+                        <!--Set Location-->
+                        <Label Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Center" Margin="20, 400, 20, 0"
+                                   HorizontalTextAlignment="Center" FontSize="Title"  FontAttributes="Bold"
+                                   Text="Set your desired location" TextColor="DimGray"/>
+
+                        <!--Conifrm (LALAGYAN DIN NG CLICKED EVENT MAMAYA)-->
+                        <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,-70,20,-80" CornerRadius="10"
+                                    TextColor="White" FontAttributes="Bold" Opacity=".63"
+                                    BackgroundColor="CadetBlue"  Text="Confirm"  FontSize="20" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+
+                    </Grid>
+                </pv:PancakeView>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+      
+        
+</ContentPage>

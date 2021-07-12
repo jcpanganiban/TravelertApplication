@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:Class="TravelertApp.Views.GeneralPublicPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Image Aspect="AspectFill" Source="SwipeBackground.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+
+            <!--boxview para may transparent effect daw dun sa background ng menu list-->
+            <BoxView BackgroundColor="#A1A1A1" Opacity="0.9"/>
+
+            <!--dito ung map and other shit sa main public page-->
+            <Grid x:Name="swipeContent">
+                <pv:PancakeView x:Name="pancake" BackgroundColor="White">
+
+                    <!--dito na lalagay ung laman, ung mga maps and shit-->
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!--Sample Map-->
+                        <maps:Map Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" x:Name="GenPubMap"
+                                  IsShowingUser="True"/>
+                        <!--<maps:Map x:Name="map"/>-->
+
+                        <!--dito na ung maps shit talaga ilalagay pati ung set destination-->
+
+                        <!--Set Location-->
+                        <Label Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="Center" Margin="20, 400, 20, 0" 
+                                   HorizontalTextAlignment="Center" FontSize="Title"  FontAttributes="Bold"
+                                   Text="Set your desired location" TextColor="DimGray"/>
+
+
+                        <!--Set desired passenger vehicle-->
+                        <Frame Grid.Row="1" Grid.ColumnSpan="2" CornerRadius="10" Margin="20,0,20,0" Padding="0" HeightRequest="40" VerticalOptions="Start">
+                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Picker x:Name="DesiredVehicle" Grid.ColumnSpan="2" Title="Select your desired vehicle" HorizontalTextAlignment="Center"
+                                            FontSize="Small"
+                                            SelectedIndexChanged="DesiredVehicle_SelectedIndexChanged"/>
+                            </Grid>
+                        </Frame>
+
+                        <!--Account (LALAGYAN DIN NG CLICKED EVENT MAMAYA)-->
+                        <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,-70,20,-80" CornerRadius="10" x:Name="Btn_Confirm"
+                                        TextColor="White" FontAttributes="Bold" Opacity=".63"
+                                        BackgroundColor="CadetBlue"  Text="Confirm"  FontSize="20" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+
+                    </Grid>
+                </pv:PancakeView>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

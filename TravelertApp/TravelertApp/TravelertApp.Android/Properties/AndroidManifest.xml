@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.dospadrinos.travelertapp" android:installLocation="auto">
+	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="30" />
+	<application android:label="TravelertApp.Android" android:theme="@style/MainTheme">
+
+    <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDIGkpgp0WWP5Ce5VroHPaPJECm9sbOZM8"/>
+
+    <!--we dont know what this does, it is said to be required whenever you target API 28 (and higher)-->
+    <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+    
+  </application>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+  <!--For API 22--> 
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+  <!--The permissions done like on IOS-->
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+</manifest>

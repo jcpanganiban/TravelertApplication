@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TravelertApp.Views.RegisterPage"
+             NavigationPage.HasNavigationBar="False">
+    
+    <ContentPage.Content>
+        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="MidnightBlue">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Register-->
+            <Frame Grid.Row="0" Grid.ColumnSpan="2" CornerRadius="10" Margin="20,90,20,0" Padding="0" HeightRequest="80" VerticalOptions="Start">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="GroupLogo.png"
+                       Grid.Column="0" HeightRequest="100"></Image>
+
+                    <Label HeightRequest="30" Grid.Column="1" BackgroundColor="MidnightBlue"
+                       Text="Register" FontSize="Large" TextColor="White" FontAttributes="None"
+                       HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                </Grid>
+            </Frame>
+
+            <!--RegisterAs-->
+            <Frame Grid.Row="1" Grid.ColumnSpan="2" CornerRadius="10" Margin="20,140,20,0" Padding="0" HeightRequest="40" VerticalOptions="Start">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Picker x:Name="RegisterAs" Grid.ColumnSpan="2" Title="Select your position" HorizontalTextAlignment="Center"
+                            SelectedIndexChanged="RegisterAs_SelectedIndexChanged" TextColor="Gray" />
+                </Grid>
+            </Frame>
+
+            <!--Next Button (LALAGYAN NG CLICKED EVENT MAMAYA)-->
+            <Button
+                x:Name="Btn_Next"
+                Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,-150,20,0" CornerRadius="10" 
+                Text="Next"  TextColor="White" FontAttributes="Bold" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="FillAndExpand" 
+                BackgroundColor="CadetBlue" Clicked="Btn_Next_Clicked"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

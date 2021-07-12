@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TravelertApp.Views.LoginPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <!--adding some padding to the total screen
+    - this padding is done on the main stack layout
+    - for this padding, we're going to use an extended way, to specify the padding force(?) for phone and tablets separately
+    - OnIdiom is used for this
+    - First, we open this padding specification and give the type thichness
+    - - after making a phone and tablet OnIdiom,
+    - - on both of these, we need to specify four parameters
+    - - - the order of these parameters are as follows: left, top, right, bottom padding
+    - - - this will send padding on all the results(?) 
+    - - - - for a tablet, a far greater padding is used.-->
+
+    <!--Note: For IOS, a top padding of 20 is needed, otherwise, the top bar is covered by the app-->
+
+    <!--Including a logo with a different padding
+    - To keep the padding from changing the logo, we want a different stacklayout for the logo-->
+
+    <StackLayout x:Name="MasterLayout">
+
+        <!--Logo and AppTitle-->
+        <StackLayout x:Name="LogoandAppTitleStack" VerticalOptions="FillAndExpand">
+            <Image x:Name="LoginIcon" Source="GroupLogo.png" Margin="0,80,0,0"/>
+            <Label x:Name="Lbl_AppTitle" HeightRequest="30" BackgroundColor="MidnightBlue"
+                   Text="Travelert" FontSize="Large" FontAttributes="Italic" TextColor="GhostWhite"
+                       HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+        </StackLayout>
+
+
+        <!--StartAndExpand will stretch the StackLayout from the of the LoginStack to the End of the screen-->
+        <StackLayout x:Name="LoginEntriesStack" VerticalOptions="StartAndExpand">
+            <StackLayout.Padding>
+                <OnIdiom x:TypeArguments="Thickness">
+                    <OnIdiom.Phone>40,0,40,0</OnIdiom.Phone>
+                    <OnIdiom.Tablet>140,150,140,0</OnIdiom.Tablet>
+                </OnIdiom>
+            </StackLayout.Padding>
+
+            <!--Username-->
+            <!--<Entry x:Name="Entry_Username" Keyboard="Email" Placeholder="E-mail Address" Text="{Binding Email}"/>-->
+
+            <!--Password-->
+            <!--<Entry x:Name="Entry_Password" IsPassword="True" Placeholder="Password" Text="{Binding Password}"/>-->
+
+            <!--SignIn-->
+            <!--Command="{Binding SignInAsConsumerCommand}"-->
+            <Button x:Name="Btn_SigninAsConsumer" Margin="0,10,0,0" CornerRadius="10" 
+                Text="Login As Consumer" FontAttributes="Bold" FontSize="Medium"
+                BackgroundColor="CadetBlue" Clicked="Btn_SigninAsConsumer_Clicked"
+                />
+            <!--Command="{Binding SignInAsEntrepreneurCommand}"-->
+            <Button x:Name="Btn_SigninAsEntrepreneur" Margin="0,10,0,0" CornerRadius="10" 
+                Text="Login As Entrepreneur" FontAttributes="Bold" FontSize="Medium"
+                BackgroundColor="CadetBlue" Clicked="Btn_SigninAsEntrepreneur_Clicked"
+                />
+
+            <!--Forgot Password-->
+            <!--<Button x:Name="Btn_ForgotPassword" Margin="0,20,0,0" CornerRadius="10" 
+                    Text="Forgot Password" FontAttributes="Bold" FontSize="Medium"
+                    BackgroundColor="CadetBlue"
+                    Clicked="Btn_ForgotPassword_Clicked"/>-->
+
+            <Label x:Name="Lbl_NotRegisteredYet" Margin="0,70,0,0"
+               Text="Not registered yet?" FontSize="Large" HorizontalTextAlignment="Center"/>
+
+            <!--Register-->
+            <Button x:Name="Btn_Register" Margin="0,0,0,0" CornerRadius="10"
+                    FontAttributes="Bold" BackgroundColor="CadetBlue" Text="Register " FontSize="Medium"
+                    Clicked="Btn_Register_Clicked" />
+
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
